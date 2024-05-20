@@ -1,0 +1,147 @@
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+<div class="row">
+<div class="col-2" style="position: relative;">
+    <div class="sidebar" style="position: sticky; top: 0;">
+        <app-sidemenu (filtersChanged)="onFiltersChanged($event)"></app-sidemenu>
+    </div>
+</div>
+<div class="col-10 row row-cols-1 row-cols-md-5 g-4 mt-4 mb-4">
+   
+    @for( product of filterproducts; track product.id ;){
+        <div class="col hand">
+            <div class="card position-relative rounded">
+              <!-- <button
+                type="button"
+                class="mt-2 me-2 border-0"
+                style="
+                  border-radius: 10px;
+                  background-color: white;
+                  position: absolute;
+                  top: 0px;
+                  left: 10px;
+                "
+             
+              >
+              
+                <i style="font-size: 15px" class="fa-regular fa-heart" 
+                ></i>
+              </button> -->
+              <button
+        type="button"
+        class="mt-2 me-2 border-0"
+        style="
+          border-radius: 10px;
+          background-color: white;
+          position: absolute;
+          top: 0px;
+          left: 10px;
+        "
+      (click)="isFavorite(product.id) ? removeFavorite(product.id) : addFavorite(product.id)"
+      >
+        
+        <i style="font-size: 15px" class="fa-regular fa-heart" 
+        [ngClass]="isFavorite(product.id) ? 'text-danger' : 'text-dark'"></i>
+      </button>
+        
+              <img
+                [src]="product.image[0]"
+                class="card-img-top shadow-container"
+                alt="..."
+                style="background-color: rgba(0, 0, 0, 0.05); padding: 5px"
+              />
+              <div class="card-body">
+                <h5 class="card-title" style="font-family: 'Noon Font', sans-serif">
+                    @if(language === 'ar')
+                    {
+                        <h5  class="card-title" style="font-family: 'Noon Font', sans-serif;"
+                            (click)="GoDetailspage(product.id)">{{ product.title_AR }}</h5>
+                    }
+                    @else
+                    {
+                        <h5 class="card-title" style="font-family: 'Noon Font', sans-serif;"
+                            (click)="GoDetailspage(product.id)">{{ product.title }}</h5>
+                    }
+                </h5>
+                <p>{{ product.description }}</p>
+                <div class="sc-b07dc364-25 jjnvGx">
+                  <div class="sc-8df39a2e-0 kXWkOO">
+                    <div class="d-flex">
+                      <h5><span class="currency">{{'EGP'|translate}}</span>
+                        <strong class="amount">{{ ((product.price - product.price * (discountPercentage/100))).toFixed(1)
+                            }}</strong></h5>
+                      <span class="currency">{{ "currency" | translate }}</span>
+                    </div>
+                  </div>
+                </div>
+        
+                <div class="sc-11505f62-1 eNGOJQ custom-container">
+                  <div class="sc-11505f62-3 qIrRM">
+                    <img
+                      src="https://f.nooncdn.com/mpcms/EN0001/assets/77701d64-1162-4836-93f9-584b39add4fd.png"
+                      class="sc-11505f62-4 jJWTJR custom-img"
+                    />
+                    <span class="sc-11505f62-5 kKiyhJ custom-text">{{
+                      "freeDelivery" | translate
+                    }}</span>
+                  </div>
+                </div>
+                <div data-qa="product-noon-express" class="sc-b07dc364-27 hEUVne">
+                  <div class="sc-b07dc364-32 kOIcnK flex-container">
+                    <div
+                      class=""
+                      style="
+                        width: 80px;
+                        height: 20px;
+                        border-top-left-radius: 40%;
+                        border-bottom-left-radius: 40%;
+                        border-bottom-right-radius: 50%;
+                        background-color: #feee00;
+                        text-align: center;
+                      "
+                    >
+                      {{ "express" | translate }}
+                    </div>
+                  </div>
+        
+              
+                </div>
+              </div>
+            </div>
+          </div>
+    }
+    
+   
+</div>
+<nav style="display: inline-flex; justify-content: center; ">
+        <ul class="pagination">
+            <li class="previous{{ page === 1 ? ' disabled' : '' }} p-2">
+                <a (click)="Previous()" class="arrowLink" tabindex="0" role="button"
+                    [attr.aria-disabled]="page === 1 ? 'true' : 'false'" aria-label="Previous page"
+                    style="color: {{ page === 1 ? 'gray' : 'black' }}">
+                    <b>previous</b>
+                </a>
+            </li>
+
+            <li (click)="Go(p1)" [class.active]="page === p1" class="p-2">
+                <a role="button" class="pageLink" tabindex="0">{{p1}}</a>
+            </li>
+
+            @if(p2<totalPage) { <li (click)="Go(p2)" [class.active]="page === p2"><a role="button" class="pageLink p-2"
+                    tabindex="0" aria-label="Page 2">{{p2}}</a></li>
+
+                }
+                @if(p3<totalPage) { <li (click)="Go(p3)" [class.active]="page === p3"><a role="button" class="pageLink p-2"
+                        tabindex="0" aria-label="Page 3">{{p3}}</a></li>
+                    }
+                    <li class="break p-2" ><a class="breakLink p-2" role="button" tabindex="0">...</a></li>
+                    <li (click)="Go(totalPage)" [class.active]="page === totalPage" class="p-2"><a role="button" class="pageLink p-2"
+                            tabindex="0" aria-label="Page 9">{{totalPage}}</a></li>
+                    <li class="next{{ page === totalPage ? ' disabled' : '' }} p-2">
+                        <a (click)="next()" class="arrowLink" tabindex="0" role="button"
+                            [attr.aria-disabled]="page === totalPage ? 'true' : 'false'" aria-label="Next page"
+                            style="color: {{ page === totalPage ? 'gray' : 'black' }}">
+                            <b>next</b>
+                        </a>
+                    </li>
+                 </ul>
+                </nav>

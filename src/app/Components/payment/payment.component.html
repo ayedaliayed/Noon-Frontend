@@ -1,0 +1,181 @@
+<div>
+  <h1>{{ "customer information" | translate }}</h1>
+</div>
+<div class="row">
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title"></h5>
+
+        <div style="margin-left: 20px">
+          <div class="p-2">
+            {{ "First Name" | translate }} : {{ userData.fName }}
+          </div>
+
+          <div class="p-2">
+            {{ "Last Name" | translate }} : {{ userData.lName }}
+          </div>
+          <div class="p-2">
+            {{ "Email" | translate }} : {{ userData.email }}
+          </div>
+          <div class="p-2">
+            {{ "Phone" | translate }} : {{ userData.phone }}
+            <img
+              src="https://f.nooncdn.com/s/app/com/common/icons/verified.svg"
+              alt=""
+            />
+            <br />
+            <input type="checkbox" /><span>
+              {{ "at my door" | translate }} </span
+            ><img
+              src="https://f.nooncdn.com/s/app/com/noon/design-system/simpleicons/info.svg"
+              alt=""
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-body">
+        <div class="card-text">
+          <div class="p-2">
+            <span style="color: #000000">{{
+              "Order Details" | translate
+            }}</span>
+          </div>
+          <div class="p-2">
+            <span>{{ "Subtotal" | translate }}</span>
+            <span style="text-align: end">{{ order.subtotal }}</span>
+          </div>
+          <div class="p-2">
+            <span>{{ "Shipping Fee" | translate }}</span>
+            <span style="text-align: end"> {{ order.deliveryMethodCost }}</span>
+          </div>
+          <div class="p-2">
+            <span>{{ "Total Incl" | translate }}</span>
+            <span style="text-align: end">{{ order.total }}</span>
+          </div>
+        </div>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="section">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div>
+          <div class="table-responsive">
+            <table class="table fs-15 align-middle table-nowrap">
+              <thead>
+                <tr>
+                  <th scope="col">Order ID</th>
+                  <th scope="col">Product</th>
+                  <th scope="col">Date</th>
+                  <th scope="col">Total Amount</th>
+                  <th scope="col">Status</th>
+                  <th scope="col"></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let orderItem of order.orderItems">
+                  <td>
+                    <a href="#" class="text-body">{{ orderItem.id }}</a>
+                  </td>
+                  <td>
+                    <div class="d-flex gap-3">
+                      <div class="avatar-sm flex-shrink-0">
+                        <div class="avatar-title bg-light rounded">
+                          <img
+                            [src]="orderItem.pictureUrls[0]"
+                            width="50px"
+                            class="avatar-xs"
+                          />
+                        </div>
+                      </div>
+                      <div class="flex-grow-1">
+                        <a href="product-details.html">
+                          <h4 class="fs-15 mb-1">
+                            {{ orderItem.productName }}
+                          </h4>
+                        </a>
+                        <p class="mb-0 text-muted fs-13">
+                          {{ orderItem.product_AR }}
+                        </p>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <span class="text-muted">{{ order.orderDate }}</span>
+                  </td>
+                  <td class="fw-bold">{{ order.subtotal }}</td>
+                  <td>
+                    <span
+                      class="badge bg-success-subtle text-success"
+                      style="font-size: 17px"
+                      >{{ order.status }}</span
+                    >
+                  </td>
+                  <td>
+                    <a
+                      href="#invoiceModal"
+                      data-bs-toggle="modal"
+                      style="font-size: 17px"
+                      class="btn btn-secondary btn-sm"
+                      >Invoice</a
+                    >
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="text-end">
+            <button class="btn btn-hover btn-primary" (click)="cancel()">
+              {{ "Cancel" | translate }}
+              <i class="ri-arrow-right-line align-middle ms-1"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+      <!--end col-->
+    </div>
+    <!--end row-->
+  </div>
+  <!--end conatiner-->
+</section>
+<div style="margin-top: 20px">
+  <h1>{{ "Payment" | translate }}</h1>
+</div>
+
+
+<div class="row">
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-body">
+        <div #paymentRef></div>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-body">
+        <div>
+          <img
+            src="https://f.nooncdn.com/s/app/com/common/icons/lock_dark.svg"
+            alt=""
+          />
+          <span style="color: rgb(126, 133, 155)">
+            {{ "Security and Privacy" | translate }}</span
+          >
+        </div>
+        <p style="margin-top: 10px; color: rgb(126, 133, 155)">
+          {{ "Our checkout" | translate }}
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

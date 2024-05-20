@@ -1,0 +1,162 @@
+<!-- <div *ngIf="showMap" class="google-map-container">
+
+  <google-map
+    height="450px"
+    width="1000px"
+    [center]="center"
+    [zoom]="zoom"
+    (mapClick)="moveMap($event)"
+    (mapMousemove)="move($event)"
+  >
+  </google-map>
+
+  <button type="button" class="close-button" (click)="closePopup()">Close</button>
+
+  <div>Latitude: {{ display?.lat }}</div>
+  <div>Latitude: {{ locationName }}</div>
+  <div>Longitude: {{ display?.lng }}</div>
+</div>
+
+<div *ngIf="!showMap" class="address-container">
+  <div class="container">
+    <div class="">
+      <div class="">
+        <div data-qa="lbl_modalTitle_Select Delivery Address" class="">
+          <b>Select Delivery Address</b>
+        </div>
+      </div>
+      <div class="">
+        <div class="">
+          <button data-qa="dd_countrySelector" class="">
+            <img
+              src="https://f.nooncdn.com/s/app/com/common/images/flags/eg.svg"
+              alt="country-eg"
+              class=""
+            /><span>Ship to</span><span>Egypt</span>
+            <div class=""></div>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="">
+      <div class="">
+        <section class="">
+          <div class="">
+            <div class="">
+              <img
+                data-qa="btn-dl-map_icon"
+                class="sc-1dac19cf-7 fUzHlJ mapIcon"
+                src="https://f.nooncdn.com/s/app/com/noon/images/address_latlng_indicator.svg"
+                alt="latlng"
+              />
+            </div>
+
+              <br>
+            <div class="data-container">
+              <div class="data-label">FName:</div>
+              <div class="data-value" data-qa="lbl-dl-name">{{ userData?.fName }}</div>
+            </div>
+            <div class="data-container">
+              <div class="data-label">LName:</div>
+              <div class="data-value" data-qa="lbl-dl-name">{{ userData?.lName }}</div>
+            </div>
+            <div class="data-container">
+              <div class="data-label">Phone:</div>
+              <div class="data-value" data-qa="lbl-dl-phone">{{ userData?.phone }}</div>
+            </div>
+          
+
+          </div>
+          
+        </section>
+      </div>
+    </div>
+  </div>
+</div>
+
+<button type="button" class="button" (click)="toggleView()">Toggle View</button> -->
+
+<div *ngIf="showMap" class="google-map-container">
+  <google-map
+    height="450px"
+    width="1000px"
+    [center]="center"
+    [zoom]="zoom"
+    (mapClick)="moveMap($event)"
+    (mapMousemove)="move($event)"
+  >
+  </google-map>
+
+  <button type="button" class="close-button" (click)="closePopup()">
+    {{ "Close" | translate }}
+  </button>
+
+  <div>{{ "Latitude" | translate }}: {{ display?.lat }}</div>
+  <div>{{ "Latitude" | translate }}: {{ locationName }}</div>
+  <div>{{ "Longitude" | translate }}: {{ display?.lng }}</div>
+</div>
+
+<div *ngIf="!showMap" class="address-container">
+  <div class="container">
+    <div class="">
+      <div class="">
+        <div data-qa="lbl_modalTitle_Select Delivery Address" class="">
+          <b>{{ "Select_Delivery_Address" | translate }}</b>
+        </div>
+      </div>
+      <div class="">
+        <div class="">
+          <button data-qa="dd_countrySelector" class="">
+            <img
+              src="https://f.nooncdn.com/s/app/com/common/images/flags/eg.svg"
+              alt="country-eg"
+              class=""
+            /><span>{{ "Ship_to" | translate }}</span
+            ><span>{{ "Egypt" | translate }}</span>
+            <div class=""></div>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="">
+      <div class="">
+        <section class="">
+          <div class="">
+            <div class="">
+              <img
+                data-qa="btn-dl-map_icon"
+                class="sc-1dac19cf-7 fUzHlJ mapIcon"
+                src="https://f.nooncdn.com/s/app/com/noon/images/address_latlng_indicator.svg"
+                alt="latlng"
+              />
+            </div>
+
+            <br />
+            <div class="data-container">
+              <div class="data-label">{{ "FName" | translate }}:</div>
+              <div class="data-value" data-qa="lbl-dl-name">
+                {{ userData?.fName }}
+              </div>
+            </div>
+            <div class="data-container">
+              <div class="data-label">{{ "LName" | translate }}:</div>
+              <div class="data-value" data-qa="lbl-dl-name">
+                {{ userData?.lName }}
+              </div>
+            </div>
+            <div class="data-container">
+              <div class="data-label">{{ "Phone" | translate }}:</div>
+              <div class="data-value" data-qa="lbl-dl-phone">
+                {{ userData?.phone }}
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+</div>
+
+<button type="button" class="button" (click)="toggleView()">
+  {{ "Toggle_View" | translate }}
+</button>

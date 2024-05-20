@@ -1,0 +1,27 @@
+<div style="display: flex; margin-bottom: 20px">
+  <div id="bigimg">
+    <img
+      style="width: 150px; height: 200px"
+      *ngIf="product && product.images && product.images.length > 0"
+      [src]="product.images[0] || ''"
+      alt="Image Not Found"
+    />
+  </div>
+  <div style="margin-top: 70px; margin-left: 10px">
+    <app-more-less
+      id="dis"
+      [text]="product?.description || ''"
+      [wordlimit]="20"
+    ></app-more-less>
+    <br />
+    <span>Added to cart </span
+    ><img
+      src="https://f.nooncdn.com/s/app/com/noon/icons/checkbox_checked.svg"
+      alt=""
+    /><br />
+  </div>
+</div>
+
+<div style="margin-top: 30px; display: flex">
+  <button class="btn btn-primary" routerLink="/cart">CHECKOUT</button>
+</div>

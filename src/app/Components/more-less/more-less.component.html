@@ -1,0 +1,25 @@
+<!-- <span *ngIf="text.length <= wordlimit">{{text}}</span>
+<span *ngIf="text.length > wordlimit && !ShowMore">
+    {{text.substring(0,wordlimit)}}... <span style="font-size: 17px; color: rgb(67, 50, 23);" (click)="ShowMore = true">Show More</span>
+</span>
+<span *ngIf="text.length > wordlimit && ShowMore">
+    {{text}} <span style="font-size: 17px; color: rgb(67, 50, 23);" (click)="ShowMore = false">Show Less</span>
+</span> -->
+
+<span *ngIf="text.length <= wordlimit">{{ text }}</span>
+<span *ngIf="text.length > wordlimit && !ShowMore">
+  {{ text.substring(0, wordlimit) }}...
+  <span
+    style="font-size: 17px; color: rgb(67, 50, 23)"
+    (click)="ShowMore = true"
+    >{{ "show_mor" | translate }}</span
+  >
+</span>
+<span *ngIf="text.length > wordlimit && ShowMore">
+  {{ text }}
+  <span
+    style="font-size: 17px; color: rgb(67, 50, 23)"
+    (click)="ShowMore = false"
+    >{{ "show_less" | translate }}</span
+  >
+</span>

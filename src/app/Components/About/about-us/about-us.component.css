@@ -1,0 +1,126 @@
+/* Basic styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    
+  }
+  
+  .container {
+    width: 100%;
+    height: 40%;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  /* Navigation bar styles */
+  .sub-nav {
+    background-color: #f2f2f2; /* Light gray background */
+    padding: 10px 0;
+  }
+  
+  .breadcrumbs {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .breadcrumbs li {
+    display: inline-block;
+    margin-right: 10px;
+  }
+  
+  .breadcrumbs a {
+    /* Text color for breadcrumb links */
+    text-decoration: none;
+  }
+  
+  .breadcrumbs a:hover {
+    text-decoration: underline; /* Underline on hover */
+  }
+  
+  /* Article container styles */
+  .article-container {
+    display: flex;
+  }
+  
+  .article-sidebar {
+    width: 25%;
+    padding: 10px;
+    
+  }
+  
+  .article {
+    width: 75%;
+    padding: 10px;
+  }
+  
+  /* Sidebar navigation styles */
+  .section-articles {
+    margin-bottom: 20px;
+  }
+  
+  .collapsible-sidebar-title {
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .sidenav-item {
+    list-style: none;
+    margin: 5px 0;
+  }
+  
+  .sidenav-item a {
+     /* Text color for sidebar links */
+    text-decoration: none;
+  }
+  
+  .sidenav-item.current-article a {
+    font-weight: bold; /* Bold text for current article */
+  }
+  
+  .sidenav-item a:hover {
+    text-decoration: underline; /* Underline on hover */
+  }
+  
+  /* Article content styles */
+  .article-header {
+    margin-bottom: 10px;
+  }
+  
+  .article-title {
+    font-size: 20px;
+    margin-bottom: 5px;
+  }
+  
+  .article-updated {
+    font-size: 12px;
+     /* Lighter text color for update time */
+  }
+  
+  .article-content p {
+    line-height: 1.5; /* Line spacing for better readability */
+    margin-bottom: 15px;
+  }
+  
+  /* Footer styles */
+  .article-votes {
+    margin-top: 20px;
+  }
+  
+  .article-votes-question {
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .article-votes-controls {
+    display: flex;
+  }
+  
+  .article-vote {
+    margin-right: 10px; /* Spacing between voting buttons */
+  }
+  
+  /* You can add additional styles here for sections like article attachments and article relatives */
+  

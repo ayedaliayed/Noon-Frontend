@@ -1,0 +1,116 @@
+<div class="position-relative">
+  <nav class="navbar navbar-expand-lg bg-body-white border border-primary">
+    <div class="container-fluid">
+      <div class="navbar-nav navTest border-end border-primary">
+        <div>
+          <a
+            class="dropbtn text-primary fw-bold nav-link dropdown-toggle" style="color: black !important; "
+            (mouseenter)="toggleTestDisplay(true)"
+          >
+            {{ "ALL CATEGORIES" | translate }}</a
+          >
+          <div
+            class="body-layout"
+            [ngClass]="{ 'd-none': testHidden }"
+            (mouseleave)="toggleTestDisplay(false)"
+          >
+            <div class="w-100 position-relative border rounded">
+              <div class="w-25 position-absolute top-0 start-0">
+                <div [ngClass]="{ 'd-none': testHidden }">
+                  <div
+                    class="w-100 d-flex"
+                    (mouseleave)="toggleTestDisplay(false)"
+                  >
+                    <div class="w-50 p-2 bg-white border-end border-primary">
+                      <ng-container *ngFor="let category of categories">
+                        <div
+                          class="category-wrapper"
+                          (mouseenter)="category.showSubcategories = true"
+                          (mouseleave)="category.showSubcategories = false"
+                        >
+                          <a
+                            href="#"
+                            class="category text-dark fs-5 text-decoration-none"
+                            [(ngModel)]="category.name"
+                            ><h6
+                              [style.color]="
+                                category.showSubcategories ? 'blue' : 'initial'
+                              "
+                            >
+                              @if(language === 'ar') {
+                              {{ category.name_Ar }}
+                              } @else {
+                              {{ category.name }}
+                              }
+                            </h6></a
+                          >
+                        </div>
+                      </ng-container>
+                    </div>
+                    <div class="w-50 bg-white p-2">
+                      <ng-container *ngFor="let category of categories">
+                        <div *ngIf="category.showSubcategories">
+                          <div class="p-1 ms-2 border-bottom mt-1 text-dark">
+                            <h5 class="category subCatAddress">
+                              @if(language === 'ar') {
+
+                              {{ category.name_Ar }}
+                              } @else {
+
+                              {{ category.name }}
+                              }
+                            </h5>
+                          </div>
+                          <div
+                            *ngFor="let subcategory of category.subcategories"
+                          >
+                            <a
+                              href="#"
+                              class="category ms-2 text-secondary text-decoration-none"
+                              >{{ subcategory.name }}</a
+                            >
+                          </div>
+                        </div>
+                      </ng-container>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNavDropdown"
+        aria-controls="navbarNavDropdown"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+          <li *ngFor="let cat of categories" class="nav-item">
+            <a
+              class="nav-link"
+              (mouseenter)="getCategoryById(cat.id)"
+              [routerLink]="'/ProductCategory/' + cat.id"
+              ><span class="fw-bold text-dark"
+                >@if(language === 'ar') {
+                {{ cat.name_Ar }}
+                } @else {
+                {{ cat.name }}
+                }</span
+              ></a
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</div>

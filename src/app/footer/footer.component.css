@@ -1,0 +1,133 @@
+
+#Phone{
+    margin-top: 17px;
+}
+#Phone2{
+    margin-top: 17px;
+}
+#Phone3{
+    margin-top: 17px;
+}
+#Phone4{
+    margin-top: 17px;
+    
+}
+
+#nan{
+    font-size: 25px;
+    font-family: Arial, sans-serif;
+    margin-left: 20px;
+}
+#nan2{
+    font-family: Arial, sans-serif;
+    color: rgb(119, 122, 125);
+    margin-left: 20px;
+    font-size: 13px;
+
+
+}
+#bist{
+    margin-top: 20px;
+    font-family: Arial, sans-serif;
+}
+.bist2{
+    color: rgb(28, 28, 29);
+}
+#foo{
+    margin-top: 60px;
+}
+
+#send1{
+    color:  #feee00;
+    font-size: 40px; 
+    border-radius: 30px;
+}
+#send2{
+    color:  #feee00;
+    border-radius: 20px;
+    margin: 10px;
+    font-size: 40px;
+}
+#send3{
+    color:  #feee00;
+    border-radius: 20px;
+    font-size: 40px;  
+}
+#send4{
+    color:  #feee00; 
+    border-radius: 20px;
+    margin: 10px; 
+    font-size: 40px;
+}
+#shoping{
+    margin-top: 10px;
+}
+.APP{
+    width: 120px;
+}
+#End{
+    margin-top: 40px;
+    font-family: Arial, sans-serif;
+    background-color: rgb(236, 240, 243);
+    height: 130px;
+}
+#cond1{
+    margin-top: 20px;
+    font-size: 14px;
+}
+#cond2{
+    margin-top: 20px;
+    font-size: 14px;
+}
+#cond3{
+    margin-top: 20px;
+    font-size: 14px;
+}
+#cond4{
+    margin-top: 20px;
+    font-size: 14px;
+}
+#cond5{
+    margin-top: 20px;
+    font-size: 14px;
+}
+#cond6{
+    margin-top: 20px;
+    font-size: 14px;
+}
+#cond7{
+    margin-top: 20px;
+    font-size: 14px;
+}
+.imgend{
+    margin: 3px;
+}
+#noon{
+    margin-top: 20px;
+
+}
+#em{
+    margin-left: 20px;
+
+}
+#ma10{
+    margin-left: 20px;
+}
+#sh{
+    margin-left: 120px;
+}
+#Us{
+    margin-left: 25px;
+}
+.all{
+   
+    color: rgb(119, 122, 125);
+    font-size: 15px;
+    margin-left: 20px;
+    text-decoration: none;
+}
+.boo{
+    /* font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; */
+    font-family: "Arial", sans-serif; /* Your preferred font family */
+      font-weight: bold;
+  }

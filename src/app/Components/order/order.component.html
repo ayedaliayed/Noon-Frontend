@@ -1,0 +1,199 @@
+<nav class="navbar navbar-expand-lg">
+  <div class="container">
+    <div class="col-12 d-flex justify-content-around align-items-center">
+      <div class="col-3">
+        <a class="navbar-brand fw-bold" href="#">
+          <i class="fa fa-arrow-left me-2"></i
+          >{{ "navbar_title" | translate }}</a
+        >
+      </div>
+      <div class="col-4">
+        <span class="fw-bold me-1">{{ "secure_checkout" | translate }}</span>
+        <span class="border-end me-1 border-dark"></span>
+        <span>{{ "for_assistance" | translate }}</span>
+      </div>
+
+      <div class="col-3 text-end">
+        <img
+          class="w-25"
+          src="https://f.nooncdn.com/s/app/com/noon/design-system/logos/noon-logo-en.svg"
+          alt="noon"
+        />
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div class="ontainer-lg mt-5">
+  <div class="row">
+    <div class="col-md-8">
+      <div>
+        <h4 class="fw-bold">{{ "shipping_address" | translate }}</h4>
+        <div class="border pt-2" style="margin-left: 130px;">
+          <div class="ms-2">
+            <div class="d-flex">
+              <i class="fa-solid fa-location-dot"></i>
+              <p class="ms-1">{{ order.appUser.country }}</p>
+            </div>
+
+            <p class="ms-3">{{ order.appUser.city }}</p>
+            <p class="ms-3">{{ order.appUser.phone }}</p>
+          </div>
+
+          <div class="border-bottom"></div>
+          <div class="mt-2 mb-2">
+            <input type="checkbox" class="ms-2 me-2" /><span>{{
+              "leave_at_door" | translate
+            }}</span>
+            <i class="ms-2 fa-solid fa-circle-exclamation"></i>
+          </div>
+        </div>
+      </div>
+
+      <section class="py-6">
+        <div class="container">
+          <div class="row">
+            <div
+              class="col-xxl-4 col-xl-4 col-lg-12"
+              *ngFor="let orderItem of order.orderItems"
+            >
+              <div class="card mb-4 mb-xl-0 card-hover border">
+                <a href="#!">
+                  <img
+                    height="300px"
+                    width=""
+                    [src]="orderItem.pictureUrls[0]"
+                    alt="webinar-1"
+                    class="w-100 rounded-top-3"
+                  />
+                </a>
+                <div class="card-body">
+                  <h3 class="mb-4 text-truncate">
+                    <p href="#!">
+                      {{ "product_name" | translate }} :
+                      <span *ngIf="language === 'ar'">
+                        {{ orderItem.productName }}
+                      </span>
+                      <span *ngIf="language === 'en'">
+                        {{ orderItem.productName }}
+                      </span>
+                    </p>
+                  </h3>
+                  <div class="mb-4">
+                    <div class="mb-3 lh-1">
+                      <span class="me-1">
+                        <i class="bi bi-calendar-check"></i>
+                      </span>
+                      <span
+                        >T{{ "price" | translate }} :
+                        {{ orderItem.price }}</span
+                      >
+                    </div>
+                    <div class="lh-1">
+                      <span class="me-1">
+                        <i class="bi bi-clock"></i>
+                      </span>
+                      <span>
+                        {{ "get_it_by" | translate }}
+                        <span class="text-success fw-bold">
+                          {{ "delivery_date" | translate }}</span
+                        ></span
+                      >
+                    </div>
+                  </div>
+                  <button
+                    href="#!"
+                    class="btn btn-light-primary btn-danger"
+                    (click)="RemoveOrder(orderItem.id)"
+                  >
+                    Delete order
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="down">
+        <h5 class="fw-bold">{{ "payment" | translate }}</h5>
+        <div class="down-content border rounded-1 w-100 p-3">
+          <div>
+            <div
+              class="row payment-methods d-flex justify-content-around align-items-center"
+            >
+              <div class="col-md-4 text-center">
+                <img
+                  src="https://f.nooncdn.com/s/app/com/noon/design-system/payment-methods-v2/card-en.svg"
+                  alt="Debit/Credit Card"
+                />
+
+                <p>{{ "debit_credit_card" | translate }}</p>
+              </div>
+              <div class="col-md-4 text-center">
+                <img
+                  src="https://f.nooncdn.com/s/app/com/noon/design-system/payment-methods-v2/valu_v2.svg"
+                  alt="valU"
+                />
+
+                <p>{{ "cash_on_value" | translate }}</p>
+              </div>
+              <div class="col-md-4 text-center">
+                <img
+                  src="https://f.nooncdn.com/s/app/com/noon/design-system/payment-methods-v2/cod-en.svg"
+                  alt="Cash On Delivery"
+                />
+
+                <p>{{ "cash_on_delivery" | translate }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div>
+        <h5 class="fw-bold">{{ "order_summary" | translate }}</h5>
+        <div class="border border-secondary-subtle rounded-1 ps-1">
+          <div>
+            <h6>{{ "order_details" | translate }}</h6>
+            <p>{{ "subtotal" | translate }} : {{ order.subtotal }}</p>
+            <p>
+              {{ "delivery_method" | translate }} : {{ order.deliveryMethod }}
+            </p>
+          </div>
+          <div class="border-bottom border-secondary-subtle"></div>
+          <div>
+            <p>{{ "total_incl_vat" | translate }} : {{ order.total }}</p>
+          </div>
+        </div>
+      </div>
+      <div class="w-100 mt-3 mb-3">
+        <button
+          class="btn btn-primary w-100"
+          type="button"
+          routerLink="/payment"
+        >
+          {{ "place_order" | translate }}
+        </button>
+      </div>
+      <div>
+        <h6 class="fw-bold">{{ "security_privacy" | translate }}</h6>
+        <p>{{ "checkout_safety" | translate }}</p>
+        <div>{{ "rights_reserved" | translate }}</div>
+
+        <div class="links d-flex">
+          <div class="m-1">
+            <a href="">{{ "terms_of_use" | translate }}</a>
+          </div>
+          <div class="m-1">
+            <a href="">{{ "terms_of_sale" | translate }}</a>
+          </div>
+          <div class="m-1">
+            <a href="">{{ "privacy_policy" | translate }}</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

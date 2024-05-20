@@ -1,0 +1,135 @@
+<section class="ftco-section">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-6 text-center mb-5">
+        <h2 class="heading-section">{{ "Login" | translate }}</h2>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-md-12">
+        <div class="wrap">
+          <div
+            class="img"
+            style="background-image: url('assets/images/login.png')"
+          ></div>
+          <button class="sc-3e837ab8-5 kUUdtW">
+            <img
+              (click)="closePopup()"
+              src="https://f.nooncdn.com/s/app/com/common/icons/x.svg"
+              alt="close-modal"
+              class="sc-d13a0e88-1 cMrpQt"
+            />
+          </button>
+          <div class="login-wrap p-4 p-md-5">
+            <div class="d-flex">
+              <div class="w-100">
+                <h3 class="mb-4">{{ "Sign In" | translate }}</h3>
+              </div>
+            </div>
+            <form
+              class="signin-form"
+              (submit)="Login()"
+              #userForm="ngForm"
+              enctype="multipart/form-data"
+            >
+              <div class="form-group mt-3">
+                <input
+                  type="email"
+                  class="form-control"
+                  required
+                  name="email"
+                  [(ngModel)]="user.email"
+                  #useremail="ngModel"
+                />
+                <label class="form-control-placeholder" for="email">{{
+                  "Email" | translate
+                }}</label>
+              </div>
+              <div
+                class="text-danger"
+                [hidden]="useremail.valid || useremail.untouched"
+              >
+                @if(useremail.errors?.['required']){
+                <p>email is Required</p>
+                } @if(useremail.errors?.['pattern']) {
+                <p>email must valid</p>
+                }
+              </div>
+              <!-- <div class="form-group"> -->
+              <!-- <input id="password-field" type="password" class="form-control" required> -->
+              <!-- <input
+                  id="password-field"
+                  type="password"
+                  class="form-control"
+                  required
+                  name="password"
+                  [(ngModel)]="user.password"
+                  #userpassword="ngModel"
+                />
+                <label class="form-control-placeholder" for="password">{{
+                  "Password" | translate
+                }}</label>
+                <span
+                  class="fa fa-fw fa-eye toggle-password"
+                  (click)="togglePasswordVisibility()"
+                ></span>
+              </div> -->
+              <div class="form-group">
+                <input
+                  id="password-field"
+                  [type]="hidePassword ? 'password' : 'text'"
+                  class="form-control"
+                  required
+                  name="password"
+                  [(ngModel)]="user.password"
+                  #userpassword="ngModel"
+                />
+                <label class="form-control-placeholder" for="password">{{
+                  "Password" | translate
+                }}</label>
+                <span
+                  class="fa fa-fw fa-eye toggle-password"
+                  (click)="togglePasswordVisibility()"
+                ></span>
+              </div>
+
+              <div class="form-group">
+                <button
+                  type="submit"
+                  [disabled]="userForm.invalid"
+                  class="form-control btn btn-primary rounded submit px-3"
+                >
+                  {{ "Sign In" | translate }}
+                </button>
+              </div>
+              <h5 *ngIf="Error !== '' && language2 === 'ar'">{{ Error2 }}</h5>
+
+              <h5 *ngIf="Error !== '' && language2 !== 'ar'">{{ Error }}</h5>
+              <div class="form-group d-md-flex">
+                <div class="w-50 text-left">
+                  <label class="checkbox-wrap checkbox-primary mb-0"
+                    >{{ "Remember Me" | translate }}
+                    <input type="checkbox" checked />
+                    <span class="checkmark"></span>
+                  </label>
+                </div>
+                <div class="w-50 text-md-right">
+                  <a href="#">{{ "Forgot Password?" | translate }}</a>
+                </div>
+              </div>
+            </form>
+            <p class="text-center">
+              {{ "Not a member?" | translate }}
+              <a
+                data-toggle="tab"
+                href="#signup"
+                style="color: black !important"
+                >{{ "Sign Up" | translate }}</a
+              >
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

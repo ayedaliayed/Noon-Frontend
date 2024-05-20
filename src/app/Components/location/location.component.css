@@ -1,0 +1,103 @@
+
+.google-map-container {
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+  }
+  
+  .address-container {
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+  }
+
+  .close-button,
+  .button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .close-button {
+    background-color: #ff6347;
+    color: #fff;
+    margin-bottom: 10px;
+  }
+  
+  .button {
+    background-color: #007bff;
+    color: #fff;
+    margin-right: 10px;
+  }
+  
+
+  .card {
+    margin-bottom: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f8f9fa;
+  }
+  
+  .card-header {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 15px;
+  }
+  
+  .card-content {
+    margin-bottom: 15px;
+  }
+
+  .country-flag {
+    width: 30px;
+    height: 20px;
+    margin-right: 5px;
+  }
+  
+
+  .form-field {
+    margin-bottom: 15px;
+  }
+  
+  .form-label {
+    font-weight: bold;
+  }
+  
+  .form-input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+
+  .button-group {
+    margin-top: 20px;
+  }
+  
+  .button-group button {
+    margin-right: 10px;
+  }
+  .data-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 17px; 
+  }
+  
+  .data-label {
+    margin-right: 10px;
+    font-weight: bold;
+  }
+  
+  .data-value {
+    margin-right: 70px;
+  }
+  

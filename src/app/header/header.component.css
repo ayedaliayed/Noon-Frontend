@@ -1,0 +1,56 @@
+.custom-button {
+  border: none; /* Remove border */
+  background-color: #feee00;
+  color: black; /* Text color */
+}
+
+/* ============================================================== */
+header {
+  background-color: #feee00;
+}
+
+@media (max-width: 768px) {
+  .search-bar {
+    width: 100%; /* Make search bar full width on small screens */
+  }
+}
+
+.leftheader {
+  display: inline;
+}
+#lang {
+  font-size: 18px;
+  font-family: Cairo;
+}
+#To {
+  display: inline;
+}
+#said {
+  width: 100%;
+}
+#sit {
+  width: 100%;
+}
+/* .cai{
+  margin-left: 40px;
+} */
+.flag {
+  margin-top: 10px;
+}
+.hed {
+  margin-right: 20px;
+}
+.logo {
+  width: 100px;
+  margin-left: 5px;
+  margin-top: 10px;
+  height: 40px;
+}
+.flag {
+  margin-left: 8px;
+  margin-right: 5px;
+  margin-bottom: 13px;
+}
+#search {
+  margin-top: 13px;
+}

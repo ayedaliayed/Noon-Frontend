@@ -1,0 +1,315 @@
+<ng-container *ngIf="!isOrderPage() && !isCartPage()">
+  <header
+    class="container-fluid"
+    dir="{{ currentLanguage === 'ar' ? 'rtl' : 'ltr' }}"
+  >
+    <div class="d-flex justify-content-between align-items-center" class="row">
+      <div class="col-lg-1 col-md-6">
+        <img
+          class="logo"
+          src="https://f.nooncdn.com/s/app/com/noon/design-system/logos/noon-logo-en.svg"
+          alt=""
+        />
+      </div>
+
+      <div class="flag" class="col-lg-2 col-md-6">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <button
+              class="nav-link custom-button"
+              mat-raised-button
+              (click)="openLocationDialog()"
+            >
+              <img
+                class="flag"
+                src="https://f.nooncdn.com/s/app/com/common/images/flags/eg.svg"
+                alt=""
+              /><span>{{ "Deliver To" | translate }}</span
+              ><br /><span class="cai" style="font-size: large;"
+                >{{ userData.city }} {{ userData.country }}{{userData.phone}}
+              </span>
+            </button>
+          </li>
+        </ul>
+      </div>
+
+      <div class="search-bar d-flex w-50" class="col-lg-6 col-md-6 mt-3">
+        <input
+          [(ngModel)]="searchText"
+          (input)="onInputChange()"
+          type="text"
+          class="form-control"
+          placeholder="Search on Product"
+        />
+      </div>
+
+      <!-- ---------------------------------------------------- -->
+      <div class="col-lg-3 col-md-6">
+        <nav class="navbar navbar-expand-sm navbar-light">
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div
+            class="hed"
+            class="collapse navbar-collapse"
+            id="navbarSupportedContent"
+          >
+            <div class="navbar-nav ms-auto">
+              <!-- <li class="nav-item">
+              <a id="lang" class="nav-link" href="#"> العربيه </a>
+            </li> -->
+
+              <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+              >
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div
+                class="hed"
+                class="collapse navbar-collapse"
+                id="navbarSupportedContent"
+              >
+                <ul class="navbar-nav ms-auto">
+                  <li class="nav-item" *ngIf="!isLoggedIn">
+                    <div class="dropdown">
+                      <button
+                        class="btn dropdown-toggle"
+                        type="button"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false"
+                      >
+                        {{ "Login" | translate }}
+                      </button>
+                      <ul class="dropdown-menu">
+                        <li>
+                          <a
+                            class="dropdown-item"
+                            mat-raised-button
+                            (click)="openAuthdDialog()"
+                          >
+                            <i class="fa-regular fa-user"></i>
+                            <span> {{ "Login" | translate }} </span>
+                          </a>
+                        </li>
+
+                        <li><hr class="dropdown-divider" /></li>
+                        <li>
+                          <a
+                            class="dropdown-item"
+                            mat-raised-button
+                            (click)="openRegisterDialog()"
+                          >
+                            <i class="fa-regular fa-user"></i>
+                            <span> {{ "Sign Up" | translate }} </span></a
+                          >
+                        </li>
+                      </ul>
+                    </div>
+                  </li>
+
+                  <li
+                    class="nav-item"
+                    style="margin-top: -11px; margin-left: 9px"
+                  >
+                    <a id="lang" class="nav-link" (click)="toggleLanguage()">
+                      {{ currentLanguage === "ar" ? "العربية" : "English" }}
+                      <!-- Display language based on currentLanguage -->
+                    </a>
+                  </li>
+
+                  <li class="nav-item" *ngIf="isLoggedIn">
+                    <div class="dropdown">
+                      <button
+                        class="btn dropdown-toggle"
+                        type="button"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false"
+                      >
+                        <!-- My Account -->
+                        {{ "MyAccount" | translate }}
+                      </button>
+                      <ul class="dropdown-menu">
+                        <li>
+                          <a class="dropdown-item" routerLink="/order"
+                            ><img
+                              src="https://f.nooncdn.com/s/app/com/noon/icons/orders_menu_icon_v3.svg"
+                              alt=""
+                            />
+                            {{ "Orders" | translate }}</a
+                          >
+                        </li>
+                        <li><hr class="dropdown-divider" /></li>
+                        <li (click)="openLocationDialog()">
+                          <p class="dropdown-item" routerLink="/products">
+                            <img
+                              src="https://f.nooncdn.com/s/app/com/noon/icons/addresses_menu_icon_v3.svg"
+                              alt=""
+                            />
+                            {{ "Address" | translate }}
+                          </p>
+                        </li>
+                        <li><hr class="dropdown-divider" /></li>
+                        <li>
+                          <a class="dropdown-item" routerLink="/payment"
+                            ><img
+                              src="https://f.nooncdn.com/s/app/com/noon/icons/payment_menu_icon_v3.svg"
+                              alt=""
+                            />
+                            {{ "Payments" | translate }}</a
+                          >
+                        </li>
+                        <li><hr class="dropdown-divider" /></li>
+                        <li>
+                          <a class="dropdown-item" routerLink="/orderhistory"
+                            ><img
+                              src="https://f.nooncdn.com/s/app/com/noon/icons/noon_credits_menu_icon_v3.svg"
+                              alt=""
+                            />
+                            {{ "order_history" | translate }}</a
+                          >
+                        </li>
+                        <li><hr class="dropdown-divider" /></li>
+                        <li>
+                          <a class="dropdown-item" routerLink="/profile"
+                            ><img
+                              src="https://f.nooncdn.com/s/app/com/noon/icons/profile_menu_icon_v3.svg"
+                              alt=""
+                            />
+                            {{ "Profile" | translate }}</a
+                          >
+                        </li>
+                        <li><hr class="dropdown-divider" /></li>
+                        <li>
+                          <a class="dropdown-item" routerLink="/change"
+                            ><img
+                              src="https://f.nooncdn.com/s/app/com/noon/icons/returns_menu_icon_v3.svg"
+                              alt=""
+                            />
+                            {{ "Change-Password" | translate }}</a
+                          >
+                        </li>
+                        <li><hr class="dropdown-divider" /></li>
+
+                        <li><hr class="dropdown-divider" /></li>
+                        <li>
+                          <a class="dropdown-item" href="" routerLink="/rest"
+                            ><img
+                              src="https://f.nooncdn.com/s/app/com/noon/icons/returns_menu_icon_v3.svg"
+                              alt=""
+                            />
+                            {{ "Rest-Password" | translate }}</a
+                          >
+                        </li>
+                        <li><hr class="dropdown-divider" /></li>
+                        <li>
+                          <span
+                            (click)="logOut()"
+                            style="margin-left: 85px; cursor: pointer"
+                          >
+                            {{ "Sing Out" | translate }}</span
+                          >
+                        </li>
+                      </ul>
+                    </div>
+                  </li>
+                  <li class="nav-item">
+                    <div class="leftheader">
+                      <div class="d-flex">
+                        <button routerLink="favorite" class="btn mt-1">
+                          {{ "WishList" | translate }}
+                        </button>
+                        <button
+                          routerLink="favorite"
+                          style="position: relative"
+                          class="border-0 btn"
+                        >
+                          <i
+                            style="font-size: 15px"
+                            class="fa-regular fa-heart"
+                          ></i>
+
+                          <div
+                            *ngIf="totalFav > 0"
+                            style="
+                              position: absolute;
+                              top: 3px;
+                              right: 3px;
+                              font-size: 7px;
+                              width: 14px;
+                              height: 14px;
+                              line-height: 10px;
+                              border-radius: 50%;
+                              background-color: blue;
+                              color: white;
+                              text-align: center;
+                            "
+                          >
+                            {{ totalFav }}
+                          </div>
+                        </button>
+                      </div>
+                    </div>
+                  </li>
+
+                  <li class="nav-item">
+                    <div class="leftheader">
+                      <div class="d-flex">
+                        <button routerLink="cart" class="btn mt-1">
+                          {{ "Cart" | translate }}
+                        </button>
+                        <button
+                          routerLink="cart"
+                          style="position: relative"
+                          class="border-0 btn"
+                        >
+                          <i
+                            style="font-size: 15px"
+                            class="fa-solid fa-cart-shopping"
+                          ></i>
+                          <div
+                            *ngIf="totalItem > 0"
+                            style="
+                              position: absolute;
+                              top: 3px;
+                              right: 3px;
+                              font-size: 7px;
+                              width: 14px;
+                              height: 14px;
+                              line-height: 10px;
+                              border-radius: 50%;
+                              background-color: blue;
+                              color: white;
+                              text-align: center;
+                            "
+                          >
+                            {{ totalItem }}
+                          </div>
+                        </button>
+                      </div>
+                    </div>
+                  </li>
+                  <!-- ------------------------------------------- -->
+                </ul>
+              </div>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </div>
+  </header>
+  <app-category></app-category>
+</ng-container>

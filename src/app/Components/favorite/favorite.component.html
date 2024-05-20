@@ -1,0 +1,93 @@
+
+<div class="row row-cols-1 row-cols-md-5 g-4 mt-4 mb-4">
+    <div class="col hand" *ngFor="let favorite of favorites; index as i; trackBy: trackById">
+      <div class="card position-relative rounded" *ngFor="let product of favorite.products">
+        <!-- Button for wishlist (commented out) -->
+        <button
+          type="button"
+          class="mt-2 me-2 border-0"
+          style="
+            border-radius: 10px;
+            background-color: white;
+            position: absolute;
+            top: 0px;
+            left: 10px;
+          "
+        >
+          <!-- <img
+            src="https://f.nooncdn.com/s/app/com/noon/icons/wishlist.svg"
+            alt="wishlist"
+            class="sc-d13a0e88-1 eDnIKc"
+            style="width: 25px !important; height: 35px !important"
+          /> -->
+        </button>
+  
+  
+        <img
+          [src]="product.image[0]"
+          class="card-img-top shadow-container"
+          alt="..."
+          style="background-color: rgba(0, 0, 0, 0.05); padding: 5px"
+        />
+  
+    
+        <div class="card-body">
+          <h5 class="card-title" style="font-family: 'Noon Font', sans-serif">
+            {{ product.title }}
+          </h5>
+          <p>{{ product.description }}</p>
+          <div class="sc-b07dc364-25 jjnvGx">
+            <div class="sc-8df39a2e-0 kXWkOO">
+              <div class="d-flex">
+                <h5>{{ product.price }}</h5>
+                <span class="currency">{{ "currency" | translate }}</span>
+              </div>
+            </div>
+          </div>
+  
+   
+          <div class="sc-11505f62-1 eNGOJQ custom-container">
+            <div class="sc-11505f62-3 qIrRM">
+              <img
+                src="https://f.nooncdn.com/mpcms/EN0001/assets/77701d64-1162-4836-93f9-584b39add4fd.png"
+                class="sc-11505f62-4 jJWTJR custom-img"
+              />
+              <span class="sc-11505f62-5 kKiyhJ custom-text">{{
+                "freeDelivery" | translate
+              }}</span>
+            </div>
+          </div>
+  
+         
+          <div data-qa="product-noon-express" class="sc-b07dc364-27 hEUVne">
+            <div class="sc-b07dc364-32 kOIcnK flex-container">
+              <div
+                class=""
+                style="
+                  width: 80px;
+                  height: 20px;
+                  border-top-left-radius: 40%;
+                  border-bottom-left-radius: 40%;
+                  border-bottom-right-radius: 50%;
+                  background-color: #feee00;
+                  text-align: center;
+                "
+              >
+                {{ "express" | translate }}
+              </div>
+            </div>
+          </div>
+        </div>
+  
+        <!-- Buttons -->
+        <div class="d-flex justify-content-center">
+          <!-- Add to cart button -->
+          <button class="btn btn-primary btn-lg m-1" (click)="addToCart(product.id)">Add To Cart</button>
+          <!-- Delete button -->
+          <button class="btn btn-outline-danger m-1" (click)="removeFavorite(product.id)">Delete</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  

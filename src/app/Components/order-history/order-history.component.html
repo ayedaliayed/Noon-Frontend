@@ -1,0 +1,93 @@
+<header class="page-header">
+  <div class="header-content-row">
+    <div class="header-content">
+      <h1>{{ "Orders" | translate }}</h1>
+      <p>
+        {{
+          "View the delivery status for items and your order history"
+            | translate
+        }}
+      </p>
+    </div>
+  </div>
+</header>
+
+<!-- --------------------------------------------- -->
+
+<div
+  class="card border-warning mb-4 mt-4"
+  style="align-content: center"
+>
+  <div class="order-id">
+    <strong>{{ "Order ID" | translate }} : NEGG30075858235</strong>
+  </div>
+  <div class="order-id">
+    <strong>Total Price : 75858235 </strong>
+    <hr />
+  </div>
+</div>
+<section class="py-6">
+  <div class="container-fluid">
+    <div class="row">
+      <div
+        class="col-xxl-4 col-xl-4 col-lg-12 p-3"
+        *ngFor="let orderItem of ordersItems"
+      >
+        <div>
+          <div class="card mb-4 mb-xl-0 card-hover border">
+            <a href="#!">
+              <img
+                height="300px"
+                width=""
+                [src]="orderItem.pictureUrls[0]"
+                alt="webinar-1"
+                class="w-100 rounded-top-3"
+              />
+            </a>
+            <div class="card-body">
+              <h3 class="mb-4 text-truncate">
+                <p href="#!">
+                  {{ "product_name" | translate }} :
+                  <span *ngIf="language === 'ar'">
+                    {{ orderItem.productName }}
+                  </span>
+                  <span *ngIf="language === 'en'">
+                    {{ orderItem.productName }}
+                  </span>
+                </p>
+              </h3>
+              <div class="mb-4">
+                <div class="mb-3 lh-1">
+                  <span class="me-1">
+                    <i class="bi bi-calendar-check"></i>
+                  </span>
+                  <span
+                    >T{{ "price" | translate }} : {{ orderItem.price }}</span
+                  >
+                </div>
+                <div class="lh-1">
+                  <span class="me-1">
+                    <i class="bi bi-clock"></i>
+                  </span>
+                  <span>
+                    {{ "get_it_by" | translate }}
+                    <span class="text-success fw-bold">
+                      {{ "delivery_date" | translate }}</span
+                    ></span
+                  >
+                </div>
+              </div>
+              <button
+                href="#!"
+                class="btn btn-light-primary btn-danger"
+                (click)="(orderItem.id)"
+              >
+                Delete order
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

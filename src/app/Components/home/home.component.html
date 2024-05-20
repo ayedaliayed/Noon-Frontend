@@ -1,0 +1,488 @@
+<div class="mt-3">
+  <div
+    id="carouselExampleIndicators"
+    class="carousel slide"
+    data-bs-ride="carousel"
+    data-bs-interval="2000"
+  >
+    <img [src]="'upslider' | translate" width="100%" />
+    <!-- Set the interval to 2 seconds -->
+    <div class="carousel-indicators">
+      <button
+        type="button"
+        data-bs-target="#carouselExampleIndicators"
+        data-bs-slide-to="0"
+        class="active"
+        aria-current="true"
+        aria-label="Slide 1"
+      ></button>
+      <button
+        type="button"
+        data-bs-target="#carouselExampleIndicators"
+        data-bs-slide-to="1"
+        aria-label="Slide 2"
+      ></button>
+      <button
+        type="button"
+        data-bs-target="#carouselExampleIndicators"
+        data-bs-slide-to="2"
+        aria-label="Slide 3"
+      ></button>
+      <button
+        type="button"
+        data-bs-target="#carouselExampleIndicators"
+        data-bs-slide-to="3"
+        aria-label="Slide 4"
+      ></button>
+      <button
+        type="button"
+        data-bs-target="#carouselExampleIndicators"
+        data-bs-slide-to="4"
+        aria-label="Slide 5"
+      ></button>
+      <button
+        type="button"
+        data-bs-target="#carouselExampleIndicators"
+        data-bs-slide-to="5"
+        aria-label="Slide 6"
+      ></button>
+      <button
+        type="button"
+        data-bs-target="#carouselExampleIndicators"
+        data-bs-slide-to="6"
+        aria-label="Slide 7"
+      ></button>
+      <button
+        type="button"
+        data-bs-target="#carouselExampleIndicators"
+        data-bs-slide-to="7"
+        aria-label="Slide 8"
+      ></button>
+    </div>
+    <div class="carousel-inner">
+      >
+      <div class="carousel-item active">
+        <img
+          [src]="'cursor1' | translate"
+          class="d-block w-100"
+          alt="product2"
+        />
+      </div>
+      <div class="carousel-item">
+        <img
+          [src]="'cursor2' | translate"
+          class="d-block w-100"
+          alt="Product3"
+        />
+      </div>
+      <div class="carousel-item">
+        <img
+          [src]="'cursor3' | translate"
+          class="d-block w-100"
+          alt="product4"
+        />
+      </div>
+      <div class="carousel-item">
+        <img
+          [src]="'cursor4' | translate"
+          class="d-block w-100"
+          alt="product5"
+        />
+      </div>
+      <div class="carousel-item">
+        <img
+          [src]="'cursor5' | translate"
+          class="d-block w-100"
+          alt="product6"
+        />
+      </div>
+      <div class="carousel-item">
+        <img
+          [src]="'cursor6' | translate"
+          class="d-block w-100"
+          alt="product7"
+        />
+      </div>
+      <div class="carousel-item">
+        <img
+          [src]="'cursor7' | translate"
+          class="d-block w-100"
+          alt="product8"
+        />
+      </div>
+      <div class="carousel-item">
+        <img
+          [src]="'cursor8' | translate"
+          class="d-block w-100"
+          alt="product8"
+        />
+      </div>
+      <div class="carousel-item">
+        <img
+          [src]="'cursor9' | translate"
+          class="d-block w-100"
+          alt="product8"
+        />
+      </div>
+      <div class="carousel-item">
+        <img
+          [src]="'cursor10' | translate"
+          class="d-block w-100"
+          alt="product8"
+        />
+      </div>
+      <div class="carousel-item">
+        <img
+          [src]="'cursor11' | translate"
+          class="d-block w-100"
+          alt="product8"
+        />
+      </div>
+    </div>
+    <button
+      class="carousel-control-prev"
+      type="button"
+      data-bs-target="#carouselExampleIndicators"
+      data-bs-slide="prev"
+    >
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button
+      class="carousel-control-next"
+      type="button"
+      data-bs-target="#carouselExampleIndicators"
+      data-bs-slide="next"
+    >
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+</div>
+
+<div class="container-fluid py-5" dir="ltr">
+  <div class="row px-xl-5">
+    <div class="col">
+      <owl-carousel-o [options]="customOptions">
+        <ng-container *ngFor="let slide of brands">
+          <ng-template carouselSlide [id]="slide.name">
+            <a [routerLink]="'/productBrand/' + slide.id"
+              ><img
+                style="
+                  margin: 0 10px;
+                  width: 100px;
+                  height: 100px;
+                  cursor: pointer;
+                "
+                [src]="slide.imagePath"
+                [alt]="slide.name"
+                [title]="slide.name"
+            /></a>
+            <br />
+          </ng-template>
+        </ng-container>
+      </owl-carousel-o>
+    </div>
+  </div>
+</div>
+<div class="part4">
+  <div class="d-flex">
+    <div class="col-4 bg-white">
+      <h3 class="fw-bold">{{ "focus" | translate }}</h3>
+      <div class=""><img src="{{ 'focus1' | translate }}" alt="" /></div>
+      <div class="mt-2"><img src="{{ 'focus2' | translate }}" alt="" /></div>
+    </div>
+
+    <div class="col-4 deals">
+      <h3 class="fw-bold">{{ "deals" | translate }}</h3>
+      <div class="d-flex justify-content-center">
+        <div class="col-6 p-1">
+          <div class="bg-white text-center rounded-top">
+            <img class="w-50 h-50" src="{{ 'deals1' | translate }}" alt="" />
+          </div>
+          <div class="content rounded-bottom">
+            <span class="fw-bold m-2">{{ "one" | translate }}</span>
+            <br />
+            <p class="text-center">{{ "p-one" | translate }}</p>
+          </div>
+        </div>
+
+        <div class="col-6 p-1">
+          <div class="bg-white text-center rounded-top">
+            <img class="w-50 h-50" src="{{ 'deals2' | translate }}" alt="" />
+          </div>
+
+          <div class="content rounded-bottom">
+            <span class="fw-bold m-2"> {{ "two" | translate }}</span>
+            <br />
+            <p class="text-center">{{ "p-two" | translate }}</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="d-flex justify-content-center">
+        <div class="col-6 p-1">
+          <div class="bg-white text-center rounded-top">
+            <img class="w-50 h-50" src="{{ 'deals3' | translate }}" alt="" />
+          </div>
+          <div class="content rounded-bottom">
+            <span class="fw-bold m-2">{{ "three" | translate }}</span>
+            <br />
+            <p class="text-center">{{ "p-three" | translate }}</p>
+          </div>
+        </div>
+
+        <div class="col-6 p-1">
+          <div class="bg-white text-center rounded-top">
+            <img class="w-50 h-50" src="{{ 'deals4' | translate }}" alt="" />
+          </div>
+          <div class="content rounded-bottom">
+            <span class="fw-bold m-2"> {{ "four" | translate }}</span>
+            <br />
+            <p class="text-center">{{ "p-four" | translate }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-4 bg-white reasons">
+      <h3 class="fw-bold">{{ "reasons" | translate }}</h3>
+      <div class="d-flex">
+        <div class="m-2"><img src="{{ 'reasons1' | translate }}" alt="" /></div>
+        <div class="m-2"><img src="{{ 'reasons2' | translate }}" alt="" /></div>
+      </div>
+      <div class="d-flex">
+        <div class="m-2"><img src="{{ 'reasons3' | translate }}" alt="" /></div>
+        <div class="m-2"><img src="{{ 'reasons4' | translate }}" alt="" /></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section>
+  <br />
+  <div>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+    />
+
+    <div class="row row-cols-1 row-cols-md-5 g-4">
+      @for( p of randomProducts; track p.id ;) {
+
+      <div class="col hand" (click)="GoDetailspage(p.id)">
+        <div class="card position-relative">
+          <button
+            type="button"
+            class="sc-b07dc364-14 dzwoLr position-absolute top-0 end-0 mt-2 me-2"
+            style="border-radius: 10px; background-color: white"
+          ></button>
+
+          <img
+            [src]="p.image[0]"
+            class="card-img-top shadow-container classimg"
+            alt="..."
+            style="background-color: rgba(0, 0, 0, 0.05); padding: 5px"
+          />
+
+          <div class="card-body">
+            <h5
+              class="card-title"
+              style="font-family: 'Noon Font', sans-serif"
+              (click)="GoDetailspage(p.id)"
+            >
+              {{ p.title }}
+            </h5>
+            <div class="sc-b07dc364-25 jjnvGx">
+              <div class="sc-8df39a2e-0 kXWkOO">
+                <div class="sc-8df39a2e-1 hCDaLm">
+                  <span class="currency">{{ "EGP" | translate }}</span>
+                  <strong class="amount">{{
+                    (p.price - p.price * (discountPercentage / 100)).toFixed(1)
+                  }}</strong>
+                </div>
+                <div class="sc-8df39a2e-2 cnynyB">
+                  <span class="oldPrice">{{ p.price }}</span>
+                  <span class="discount"
+                    >{{ discountPercentage }}% {{ "Off" | translate }}</span
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div class="sc-11505f62-1 eNGOJQ custom-container">
+              <div class="sc-11505f62-3 qIrRM">
+                <img
+                  src="https://f.nooncdn.com/mpcms/EN0001/assets/77701d64-1162-4836-93f9-584b39add4fd.png"
+                  class="sc-11505f62-4 jJWTJR custom-img"
+                />
+                <span class="sc-11505f62-5 kKiyhJ custom-text">{{
+                  "Free_Delivery" | translate
+                }}</span>
+              </div>
+            </div>
+
+            <div data-qa="product-noon-express" class="sc-b07dc364-27 hEUVne">
+              <div class="sc-b07dc364-32 kOIcnK flex-container">
+                <div class="sc-18d782e3-0 khepWe">
+                  <img
+                    [src]="'src' | translate"
+                    alt="noon-express"
+                    class="sc-d13a0e88-1 gyTPxa"
+                    style="width: 60px; height: auto"
+                  />
+                </div>
+                <div class="sc-b07dc364-33 fnkOzq">
+                  {{ "Get_by" | translate }}<b>28 {{ "April" | translate }}</b>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      } @empty {
+      <h1>{{ "No_Products" | translate }}</h1>
+      }
+    </div>
+  </div>
+</section>
+<div class="bodyImg">
+  <div><img class="h-25" src="{{ 'headImg' | translate }}" alt="" /></div>
+  <div class="d-flex">
+    <div class="col-3"><img src="{{ 'img1' | translate }}" alt="" /></div>
+    <div class="col-3"><img src="{{ 'img2' | translate }}" alt="" /></div>
+    <div class="col-3"><img src="{{ 'img3' | translate }}" alt="" /></div>
+    <div class="col-3"><img src="{{ 'img4' | translate }}" alt="" /></div>
+  </div>
+</div>
+<app-brand></app-brand>
+<div style="background-color: red; margin-top: 50px">
+  <img src="{{ 'bank' | translate }}" width="100%" height="100%" alt="bank" />
+</div>
+<div class="mt-2 bodyImg">
+  <div><img class="h-25" src="{{ 'headImg60' | translate }}" alt="" /></div>
+  <div class="d-flex">
+    <div class="col"><img src="{{ 'img5' | translate }}" alt="" /></div>
+    <div class="col"><img src="{{ 'img6' | translate }}" alt="" /></div>
+    <div class="col"><img src="{{ 'img7' | translate }}" alt="" /></div>
+    <div class="col"><img src="{{ 'img8' | translate }}" alt="" /></div>
+    <div class="col"><img src="{{ 'img9' | translate }}" alt="" /></div>
+    <div class="col"><img src="{{ 'img10' | translate }}" alt="" /></div>
+    <div class="col"><img src="{{ 'img11' | translate }}" alt="" /></div>
+  </div>
+</div>
+<section id="Products" class="section-p1">
+  <div class="pro">
+    <h2>{{ "Recommended_for_you" | translate }}</h2>
+  </div>
+
+  <div class="pro-container" [routerLink]="['/products', 'Mobiles']">
+    <div class="pro">
+      <img src="assets\images/img/05.jpg" alt="" />
+
+      <div class="des">
+        <!-- <h3>Mobils</h3> -->
+        <h3>{{ "Mobils" | translate }}</h3>
+      </div>
+    </div>
+
+    <div class="pro" [routerLink]="['/products', 'Electronics']">
+      <img src="assets\images\images (3).jpeg" alt="" />
+
+      <div class="des">
+        <h3>
+          <a>{{ "Laptops_Computers" | translate }}</a>
+        </h3>
+      </div>
+    </div>
+
+    <div class="pro" [routerLink]="['/products', 'Home & Kitchen']">
+      <img src="assets\images/img/03.jpg" alt="" />
+
+      <div class="des">
+        <h3>{{ "watches" | translate }}</h3>
+      </div>
+    </div>
+
+    <div class="pro" [routerLink]="['/products', 'Earbuds Bluetooth']">
+      <img src="assets\images\download (1).jpeg" alt="" />
+
+      <div class="des">
+        <h3>{{ "Earbuds_Bluetooth" | translate }}</h3>
+      </div>
+    </div>
+
+    <div class="pro" [routerLink]="['/products']">
+      <img src="assets\images/img/02.jpg" alt="" />
+
+      <div class="des">
+        <h3>{{ "all_products_available" | translate }}</h3>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="mt-2 bodyImg">
+  <div><img class="h-25" src="{{ 'headImgBeaty' | translate }}" alt="" /></div>
+  <div class="d-flex">
+    <div class="col"><img src="{{ 'img12' | translate }}" alt="" /></div>
+    <div class="col"><img src="{{ 'img13' | translate }}" alt="" /></div>
+    <div class="col"><img src="{{ 'img14' | translate }}" alt="" /></div>
+    <div class="col"><img src="{{ 'img15' | translate }}" alt="" /></div>
+    <div class="col"><img src="{{ 'img16' | translate }}" alt="" /></div>
+    <div class="col"><img src="{{ 'img17' | translate }}" alt="" /></div>
+    <div class="col"><img src="{{ 'img18' | translate }}" alt="" /></div>
+  </div>
+</div>
+
+<div class="mt-2 bodyImg2">
+  <div><img class="h-25" src="{{ 'headImgmen' | translate }}" alt="" /></div>
+  <div class="d-flex">
+    <div class="col"><img src="{{ 'img19' | translate }}" alt="" /></div>
+    <div class="col"><img src="{{ 'img20' | translate }}" alt="" /></div>
+    <div class="col"><img src="{{ 'img21' | translate }}" alt="" /></div>
+    <div class="col"><img src="{{ 'img22' | translate }}" alt="" /></div>
+    <div class="col"><img src="{{ 'img23' | translate }}" alt="" /></div>
+    <div class="col"><img src="{{ 'img24' | translate }}" alt="" /></div>
+    <div class="col"><img src="{{ 'img25' | translate }}" alt="" /></div>
+  </div>
+</div>
+<div class="bodyImg2">
+  <div><img class="h-25" src="{{ 'headImgwomen' | translate }}" alt="" /></div>
+  <div class="d-flex">
+    <div class="col"><img src="{{ 'img26' | translate }}" alt="" /></div>
+    <div class="col"><img src="{{ 'img27' | translate }}" alt="" /></div>
+    <div class="col"><img src="{{ 'img28' | translate }}" alt="" /></div>
+    <div class="col"><img src="{{ 'img29' | translate }}" alt="" /></div>
+    <div class="col"><img src="{{ 'img30' | translate }}" alt="" /></div>
+    <div class="col"><img src="{{ 'img31' | translate }}" alt="" /></div>
+    <div class="col"><img src="{{ 'img32' | translate }}" alt="" /></div>
+  </div>
+</div>
+<div class="bodyImg2">
+  <div><img class="h-25" src="{{ 'headImgkids' | translate }}" alt="" /></div>
+  <div class="d-flex">
+    <div class="col"><img src="{{ 'img33' | translate }}" alt="" /></div>
+    <div class="col"><img src="{{ 'img34' | translate }}" alt="" /></div>
+    <div class="col"><img src="{{ 'img35' | translate }}" alt="" /></div>
+    <div class="col"><img src="{{ 'img36' | translate }}" alt="" /></div>
+    <div class="col"><img src="{{ 'img37' | translate }}" alt="" /></div>
+    <div class="col"><img src="{{ 'img38' | translate }}" alt="" /></div>
+    <div class="col"><img src="{{ 'img39' | translate }}" alt="" /></div>
+  </div>
+</div>
+
+<div style="background-color: red">
+  <img
+    src="{{ 'farmer' | translate }}"
+    width="100%"
+    height="100%"
+    alt="sasadadsadsads"
+  />
+</div>
+
+<div style="display: flex">
+  <img src="{{ 'glassess2' | translate }}" width="100%" height="100%" alt="" />
+  <img src="{{ 'glassess1' | translate }}" width="100%" height="100%" alt="" />
+</div>

@@ -1,0 +1,64 @@
+<div class="container">
+  <div class="article-container" id="article-container">
+    <section class="article-sidebar"></section>
+
+    <article class="article" id="trigger">
+      <header class="article-header" style="background-color: white !important">
+        <h1 title="About noon" style="text-align: center">
+          {{ "About_noon" | translate }}
+        </h1>
+        <div class="article-author">
+          <div class="article-updated meta-data">
+            {{ "Updated" | translate }}
+            <time
+              datetime="2024-03-30T20:48:37Z"
+              title="2024-03-30 22:48"
+              data-datetime="relative"
+            >
+              {{ "3_hours" | translate }}</time
+            >
+          </div>
+        </div>
+      </header>
+
+      <section class="article-info">
+        <div class="article-content">
+          <div class="article-body">
+            <p>{{ "noonan_easy" | translate }}</p>
+          </div>
+          <div class="article-attachments">
+            <ul class="attachments"></ul>
+          </div>
+          <footer>
+            <div class="article-votes">
+              <span class="article-votes-question">{{
+                "Was_this" | translate
+              }}</span>
+              <div class="article-votes-controls" role="radiogroup">
+                <a
+                  class="button article-vote article-vote-up"
+                  aria-selected="false"
+                  role="radio"
+                  rel="nofollow"
+                  title="Yes"
+                  href="#"
+                ></a>
+                <a
+                  class="button article-vote article-vote-down"
+                  aria-selected="false"
+                  role="radio"
+                  rel="nofollow"
+                  title="No"
+                  href="#"
+                ></a>
+              </div>
+            </div>
+          </footer>
+          <section class="article-relatives"></section>
+        </div>
+      </section>
+    </article>
+
+    <section id="navigation_widget" class="right_side_bar"></section>
+  </div>
+</div>
